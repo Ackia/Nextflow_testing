@@ -19,7 +19,7 @@ println """\
           .stripIndent()
 
 reads_pe = Channel
-  .fromFileParis(params.reads + '*{_R1, _R2}*.fastq.gz', size: 2, flat: true)
+  .fromFilePairs(params.reads + '*_{R1, R2}_*.fastq.gz', size: 2, flat: true)
   println()
 
 process list_files {
