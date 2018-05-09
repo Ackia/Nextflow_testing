@@ -1,6 +1,6 @@
 #!/usr/bin/env nextflow
 
-params.reads = '~/Nextflow_QC_work/MiniSeq_Nextera_DNA_Flex_replicates_of_E.coli_B.cereus_and_R.sphaeroides_-48128083/FASTQ_Generation_2017-09-21_21_17_08Z-55066256/ds.304e6afab9524e32b27c836ed1221321/'
+params.input = '~/Nextflow_QC_work/MiniSeq_Nextera_DNA_Flex_replicates_of_E.coli_B.cereus_and_R.sphaeroides_-48128083/FASTQ_Generation_2017-09-21_21_17_08Z-55066256/ds.304e6afab9524e32b27c836ed1221321/'
 params.output = '/data/output'
 
 if (params.reads == '') {
@@ -13,13 +13,13 @@ if (params.output == '') {
 println """\
           Sequencing QC pipeline
           =============================
-          reads:  .fromFilePairs(params.reads + '*_{R1, R2}_*.fastq.gz', size: 2, flat: true)
+          input:  .fromFilePairs(params.reads + '*_{R1, R2}_*.fastq.gz', size: 2, flat: true)
           outdir: ${params.output}
           """
           .stripIndent()
 
 reads_pe = Channel
-  .fromFilePairs(params.reads + '*_{R1, R2}_*.fastq.gz', size: 2, flat: true)
+  .fromFilePairs(params.input + '*_{R1, R2}_*.fastq.gz', size: 2, flat: true)
   .println()
 
 process trimming_pe {
