@@ -13,7 +13,7 @@ if (params.output == '') {
 println """\
           Sequencing QC pipeline
           =============================
-          input:  .fromFilePairs(params.reads + '*_{R1, R2}_*.fastq.gz', size: 2, flat: true)
+          input:  ${params.input}
           outdir: ${params.output}
           """
           .stripIndent()
