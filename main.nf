@@ -24,7 +24,7 @@ reads_pe = Channel
 
 process list_files {
   input:
-  file reads from reads_in
+  file reads from reads_pe
   output:
   file 'samples' into sample_list
   script:
