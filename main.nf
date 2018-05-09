@@ -18,7 +18,7 @@ println """\
           """
           .stripIndent()
 
-reads_pe = Channel
+Channel
   .fromFilePairs(params.reads + '*_{R1, R2}_*.fastq.gz', size: 2, flat: true)
   .println()
 
