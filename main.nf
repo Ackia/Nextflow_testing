@@ -19,7 +19,7 @@ println """\
           .stripIndent()
 
 reads_pe = Channel
-  .fromFilePairs(params.input + '*_{R1, R2}_*.fastq.gz', size: 2, flat: true)
+  .fromFilePairs(params.input + '*_{R1, R2}_001.fastq.gz', size: 2, flat: true)
   .println()
 
 process trimming_pe {
