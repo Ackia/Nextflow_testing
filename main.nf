@@ -20,7 +20,7 @@ println """\
 
 reads_pe = Channel
   .fromFilePairs(params.reads + '*_{R1, R2}_*.fastq.gz', size: 2, flat: true)
-  println()
+  println(reads_pe)
 
 process list_files {
   input:
