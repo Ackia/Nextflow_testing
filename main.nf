@@ -34,7 +34,7 @@ process md5_checksums {
                       """
                       #!/usr/bin/env bash
                       echo $read1 $read2
-                      md5sum $read1 > ${id}R1${params.trail}.md5
-                      md5sum $read2 > ${id}R2${params.trail}.md5
+                      md5sum $read1 > ${id}_R1${params.trail}.md5
+                      md5sum $read2 > ${id}_R2${params.trail}.md5
                       """
                       }
