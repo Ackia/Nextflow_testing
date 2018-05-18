@@ -37,7 +37,7 @@ reads_md5_pe = Channel
              .fromFilePairs(params.reads + '*_{R1,R2}.fastq.gz', size: 2, flat: true)
 
 process md5_checksums {
-                      publishDir path: "${paras.outdir}", mode: 'copy'
+                      publishDir path: "${params.outdir}", mode: 'copy'
                       input: set val(id), file(read1), file(read2) from reads_md5_pe
 
                       output: set val(id), file("${id}_R1${params.trail}.md5")
