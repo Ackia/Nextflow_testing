@@ -29,6 +29,7 @@ println """\
          ===================================
          reads        : ${params.reads}
          outdir       : ${params.outdir}
+         trail        : ${params.trail}
          """
          .stripIndent()
 
