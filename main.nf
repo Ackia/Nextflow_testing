@@ -27,7 +27,7 @@ reads_in = Channel
 println """\
          Hybrid Assembly- N F   P I P E L I N E
          ===================================
-         reads        : ${reads}
+         reads        : ${params.reads}
          outdir       : ${params.outdir}
          """
          .stripIndent()
