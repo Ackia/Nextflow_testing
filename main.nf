@@ -23,11 +23,11 @@ if (params.trail == '') {
 
 reads_in = Channel
           .fromFilePairs(params.reads + '*_{R1,R2}${params.trail}', size: 2, flat: true)
-
+          .println()
 println """\
          Hybrid Assembly- N F   P I P E L I N E
          ===================================
-         reads        : ${reads_in}
+         reads        : ${reads}
          outdir       : ${params.outdir}
          """
          .stripIndent()
