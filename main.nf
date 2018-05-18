@@ -21,8 +21,19 @@ if (params.trail == '') {
     exit 1, '--trail is a required paramater for ENA SUB pipeline'
 }
 
+reads_in = Channel
+          .fromFilePairs(params.reads + '*_{R1,R2}${params.trail}', size: 2, flat: true)
+
+println """\
+         Hybrid Assembly- N F   P I P E L I N E
+         ===================================
+         reads        : ${reads_in}
+         outdir       : ${params.outdir}
+         """
+         .stripIndent()
+
 reads_md5_pe = Channel
-             .fromFilePairs(params.reads + '*_{R1,R2}.${params.trail}', size: 2, flat: true)
+             .fromFilePairs(params.reads + '*_{R1,R2}${params.trail}', size: 2, flat: true)
 
 process md5_checksums {
                       publishDir path: "${paras.outdir}", mode: 'copy'
