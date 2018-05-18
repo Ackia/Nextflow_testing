@@ -22,7 +22,7 @@ if (params.trail == '') {
 }
 
 reads_in = Channel
-          .fromFilePairs(params.reads + '*_{R1,R2}${params.trail}', size: 2, flat: true)
+          .fromFilePairs(params.reads + '*_{R1,R2}.fastq.gz', size: 2, flat: true)
           .println()
 println """\
          Hybrid Assembly- N F   P I P E L I N E
@@ -34,7 +34,7 @@ println """\
          .stripIndent()
 
 reads_md5_pe = Channel
-             .fromFilePairs(params.reads + '*_{R1,R2}${params.trail}', size: 2, flat: true)
+             .fromFilePairs(params.reads + '*_{R1,R2}.fastq.gz', size: 2, flat: true)
 
 process md5_checksums {
                       publishDir path: "${paras.outdir}", mode: 'copy'
@@ -46,7 +46,7 @@ process md5_checksums {
                       """
                       #!/usr/bin/env bash
                       echo $read1 $read2
-                      md5sum $read1 > ${id}_R1${params.trail}.md5
-                      md5sum $read2 > ${id}_R2${params.trail}.md5
+                      md5sum $read1 > ${id}_R1.fatsq.gz.md5
+                      md5sum $read2 > ${id}_R2.fastq.gz.md5
                       """
                       }
