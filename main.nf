@@ -46,7 +46,7 @@ process md5_checksums {
                       """
                       #!/usr/bin/env bash
                       echo $read1 $read2
-                      md5sum $read1 > ${id}_R1.fatsq.gz.md5
+                      md5sum $read1 > ${id}_R1.fastq.gz.md5
                       md5sum $read2 > ${id}_R2.fastq.gz.md5
                       """
                       }
